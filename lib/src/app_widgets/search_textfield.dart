@@ -173,7 +173,7 @@ class AppTextFieldState extends State<SearchTextField> {
           const SizedBox(
             width: 16,
           ),
-          ViHatImageButton(
+          LCImageButton(
             image: UIImages.icSearch,
             onClick: () {
               if (!isEnableButton) {

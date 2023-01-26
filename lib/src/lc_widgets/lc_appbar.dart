@@ -30,7 +30,7 @@ class LCAppbar extends PreferredSize {
             ),
             leadingWidth: showBackButton ? 60 : 40,
             titleSpacing: 0,
-            leading: showBackButton ? const BackButtonViHat() : null,
+            leading: showBackButton ? const LCBackButton() : null,
           ),
           preferredSize: const Size.fromHeight(appbarHeight),
         );
@@ -81,15 +81,15 @@ class LCAppbar extends PreferredSize {
             title: title,
             leadingWidth: showBackgroundBackButton ? 60 : 40,
             titleSpacing: 0,
-            leading: showBackButton ? const BackButtonViHat() : null,
+            leading: showBackButton ? const LCBackButton() : null,
             actions: actions,
           ),
           preferredSize: const Size.fromHeight(appbarHeight),
         );
 }
 
-class BackButtonViHat extends StatelessWidget {
-  const BackButtonViHat({
+class LCBackButton extends StatelessWidget {
+  const LCBackButton({
     Key? key,
     this.callback,
   }) : super(key: key);

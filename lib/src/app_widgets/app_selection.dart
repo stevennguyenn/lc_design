@@ -9,11 +9,13 @@ class AppSelection extends StatefulWidget {
     required this.titles,
     required this.callback,
     this.actions,
+    this.height = 40,
   });
 
   final List<String> titles;
   final Function(int) callback;
   final List<Widget>? actions;
+  final double height;
 
   @override
   State<StatefulWidget> createState() {
@@ -46,49 +48,49 @@ class AppSelectionState extends State<AppSelection>
       child: !_available
           ? const SizedBox()
           : Container(
-              color: UIColors.white,
-              padding: const EdgeInsets.only(
-                bottom: 16,
-              ),
-              child: Row(
-                children: [
-                  Expanded(
-                    child: SizedBox(
-                      height: 40,
-                      child: ListView.separated(
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 16,
-                        ),
-                        scrollDirection: Axis.horizontal,
-                        itemBuilder: (context, index) {
-                          return SelectionItem(
-                            title: widget.titles[index],
-                            isSelected: _currentIndex == index,
-                            callback: () {
-                              setState(() {
-                                _currentIndex = index;
-                              });
-                              widget.callback(index);
-                            },
-                          );
-                        },
-                        separatorBuilder: (context, index) {
-                          return const SizedBox(
-                            width: 16,
-                          );
-                        },
-                        itemCount: widget.titles.length,
-                      ),
-                    ),
+        color: UIColors.white,
+        padding: const EdgeInsets.only(
+          bottom: 16,
+        ),
+        child: Row(
+          children: [
+            Expanded(
+              child: SizedBox(
+                height: widget.height,
+                child: ListView.separated(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 16,
                   ),
-                  if (widget.actions != null) ...widget.actions!,
-                  if (widget.actions != null)
-                    const SizedBox(
+                  scrollDirection: Axis.horizontal,
+                  itemBuilder: (context, index) {
+                    return SelectionItem(
+                      title: widget.titles[index],
+                      isSelected: _currentIndex == index,
+                      callback: () {
+                        setState(() {
+                          _currentIndex = index;
+                        });
+                        widget.callback(index);
+                      },
+                    );
+                  },
+                  separatorBuilder: (context, index) {
+                    return const SizedBox(
                       width: 16,
-                    ),
-                ],
+                    );
+                  },
+                  itemCount: widget.titles.length,
+                ),
               ),
             ),
+            if (widget.actions != null) ...widget.actions!,
+            if (widget.actions != null)
+              const SizedBox(
+                width: 16,
+              ),
+          ],
+        ),
+      ),
     );
   }
 

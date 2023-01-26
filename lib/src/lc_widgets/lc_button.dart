@@ -50,8 +50,8 @@ class LCButton extends MaterialButton {
         );
 }
 
-class ViHatImageButton extends StatelessWidget {
-  const ViHatImageButton({
+class LCImageButton extends StatelessWidget {
+  const LCImageButton({
     Key? key,
     required this.image,
     this.height = 40,
