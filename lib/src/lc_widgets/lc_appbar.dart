@@ -10,7 +10,7 @@ class LCAppbar extends PreferredSize {
     String? title,
     Color? backgroundColor = UIColors.white,
     bool centerTitle = true,
-    bool showBackgroundBackButton = false,
+    bool showBackButton = true,
     List<Widget>? actions,
   }) : super(
           key: key,
@@ -28,9 +28,9 @@ class LCAppbar extends PreferredSize {
               title ?? "",
               fontSize: FontSizes.big,
             ),
-            leadingWidth: showBackgroundBackButton ? 60 : 40,
+            leadingWidth: showBackButton ? 60 : 40,
             titleSpacing: 0,
-            leading: const BackButtonViHat(),
+            leading: showBackButton ? const BackButtonViHat() : null,
           ),
           preferredSize: const Size.fromHeight(appbarHeight),
         );
@@ -65,6 +65,7 @@ class LCAppbar extends PreferredSize {
     Color? backgroundColor = UIColors.white,
     bool centerTitle = true,
     bool showBackgroundBackButton = false,
+    bool showBackButton = true,
     List<Widget>? actions,
   }) : super(
           key: key,
@@ -80,7 +81,7 @@ class LCAppbar extends PreferredSize {
             title: title,
             leadingWidth: showBackgroundBackButton ? 60 : 40,
             titleSpacing: 0,
-            leading: const BackButtonViHat(),
+            leading: showBackButton ? const BackButtonViHat() : null,
             actions: actions,
           ),
           preferredSize: const Size.fromHeight(appbarHeight),

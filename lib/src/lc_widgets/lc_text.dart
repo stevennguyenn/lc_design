@@ -82,7 +82,6 @@ class LCText extends Text {
   LCText.bold(
     String text, {
     Key? key,
-
     /// need list of size
     double? fontSize = FontSizes.medium,
     Color? color = UIColors.textColor,
