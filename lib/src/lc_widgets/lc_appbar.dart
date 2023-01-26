@@ -111,7 +111,7 @@ class BackButtonViHat extends StatelessWidget {
           margin: const EdgeInsets.only(
             left: 10,
           ),
-          child: ViHatImage.asset(
+          child: LCImage.asset(
             name: UIImages.icBack,
             width: 24,
             height: 24,

@@ -12,7 +12,7 @@ class AppEmptyWidget extends StatelessWidget {
       mainAxisSize: MainAxisSize.max,
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        ViHatImage.asset(
+        LCImage.asset(
           name: UIImages.icEmpty,
           width: 56,
           height: 56,

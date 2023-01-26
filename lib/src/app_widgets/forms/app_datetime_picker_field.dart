@@ -95,7 +95,7 @@ class AppDateTimePickerField extends StatelessWidget {
                   fontSize: FontSizes.medium,
                 ),
                 const Spacer(),
-                ViHatImage.asset(
+                LCImage.asset(
                   name: 'ic_calendar.png',
                 ),
               ],

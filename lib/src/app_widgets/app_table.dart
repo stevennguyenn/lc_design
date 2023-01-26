@@ -47,7 +47,7 @@ class AppTable extends StatelessWidget {
             padding: const EdgeInsets.symmetric(
               horizontal: 16,
             ),
-            child: ViHatImage.asset(
+            child: LCImage.asset(
               name: index == 0 ? titleIcon! : icon!,
               width: 20,
               height: 20,

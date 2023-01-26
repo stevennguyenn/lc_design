@@ -86,7 +86,7 @@ class LCInternetImage extends StatelessWidget {
             height: height,
             fit: fit,
             errorWidget: (_, __, ___) {
-              return ViHatImage.asset(
+              return LCImage.asset(
                 ///replace error image asset
                 name: placeHolder ?? "",
                 boxFit: BoxFit.contain,
@@ -107,7 +107,7 @@ class LCInternetImage extends StatelessWidget {
               height: height,
               fit: fit,
               errorWidget: (_, __, ___) {
-                return ViHatImage.asset(
+                return LCImage.asset(
                   ///replace error image asset
                   name: placeHolder ?? "",
                   boxFit: BoxFit.contain,
@@ -124,8 +124,8 @@ class LCInternetImage extends StatelessWidget {
   }
 }
 
-class ViHatImage extends Image {
-  ViHatImage.asset({
+class LCImage extends Image {
+  LCImage.asset({
     Key? key,
     required String name,
     double? width,
@@ -145,7 +145,7 @@ class ViHatImage extends Image {
           fit: boxFit,
         );
 
-  ViHatImage.file({
+  LCImage.file({
     Key? key,
     required File file,
     double? width,

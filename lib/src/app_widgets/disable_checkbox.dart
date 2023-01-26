@@ -18,7 +18,7 @@ class DisableCheckbox extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        ViHatImage.asset(
+        LCImage.asset(
           name: isSelected ? UIImages.icCheck : UIImages.icCircle,
           width: 20,
           height: 20,

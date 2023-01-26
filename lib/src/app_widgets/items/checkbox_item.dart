@@ -20,7 +20,7 @@ class CheckBoxItem extends StatelessWidget {
       onTap: callback,
       child: Row(
         children: [
-          ViHatImage.asset(
+          LCImage.asset(
             name: isSelected ? UIImages.icCheck : UIImages.icCircle,
             width: 20,
             height: 20,

@@ -36,7 +36,7 @@ class DashedButton extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               if (image != null) ...[
-                ViHatImage.asset(
+                LCImage.asset(
                   name: image!,
                   width: 24,
                   height: 20,

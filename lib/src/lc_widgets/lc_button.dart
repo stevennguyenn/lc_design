@@ -85,7 +85,7 @@ class ViHatImageButton extends StatelessWidget {
           borderRadius: BorderRadius.circular(12),
         ),
         child: Center(
-          child: ViHatImage.asset(
+          child: LCImage.asset(
             name: image,
             width: 24,
             height: 24,

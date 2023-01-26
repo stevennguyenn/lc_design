@@ -62,7 +62,7 @@ class AppTimePickerField extends StatelessWidget {
                   fontSize: FontSizes.medium,
                 ),
                 const Spacer(),
-                ViHatImage.asset(
+                LCImage.asset(
                   name: UIImages.icClock,
                 ),
               ],

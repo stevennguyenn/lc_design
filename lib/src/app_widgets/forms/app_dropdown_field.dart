@@ -96,14 +96,14 @@ class AppDropdownFieldState extends State<AppDropdownField>
                         currentValue = '0';
                       });
                     },
-                    child: ViHatImage.asset(
+                    child: LCImage.asset(
                       name: UIImages.icDownloadBlack,
                     ),
                   ),
                 const AppSizedBox.width(
                   width: 8,
                 ),
-                ViHatImage.asset(
+                LCImage.asset(
                   name: UIImages.icDropDown,
                   width: 12,
                   height: 12,

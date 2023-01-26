@@ -104,7 +104,7 @@ class AppTextFieldState extends State<SearchTextField> {
         onTap: () {
           widget.searchController!.clear();
         },
-        child: ViHatImage.asset(
+        child: LCImage.asset(
           name: UIImages.icDownloadBlack,
         ),
       );

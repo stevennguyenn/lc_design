@@ -120,14 +120,14 @@ class AppDateTimePickerStatefulFieldState
                         currentDatePicker = DateTime(1, 1, 1);
                       });
                     },
-                    child: ViHatImage.asset(
+                    child: LCImage.asset(
                       name: UIImages.icDownloadBlack,
                     ),
                   ),
                 const AppSizedBox.width(
                   width: 8,
                 ),
-                ViHatImage.asset(
+                LCImage.asset(
                   name: 'ic_calendar.png',
                 ),
               ],

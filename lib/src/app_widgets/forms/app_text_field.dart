@@ -163,7 +163,7 @@ class AppTextFieldState extends State<AppTextField> {
             isHidePassword = !isHidePassword;
           });
         },
-        child: ViHatImage.asset(
+        child: LCImage.asset(
           name: name,
         ),
       );
@@ -175,7 +175,7 @@ class AppTextFieldState extends State<AppTextField> {
         onTap: () {
           widget.controller!.clear();
         },
-        child: ViHatImage.asset(
+        child: LCImage.asset(
           name: UIImages.icDownloadBlack,
         ),
       );
