@@ -1,7 +1,7 @@
 name: lc_design
 description: LC Design.
 version: 1.0.0
-homepage: LC design
+homepage: https://github.com/stevennguyenn/lc_design
 
 environment:
   sdk: '>=2.19.0 <3.0.0'
