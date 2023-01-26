@@ -1,0 +1,48 @@
+import 'package:lc_design/src/constants/constants.dart';
+
+class UIImages {
+  static const icServiceRemplacement = "ic_service_remplacement.png";
+  static const icVisibilityOff = "ic_visibility_off.png";
+  static const icVisibility = "ic_visibility.png";
+  static const icNotification = "ic_notification.png";
+  static const icArrowBack = "ic_arrow_back.png";
+  static const icSearch = "ic_search.png";
+  static const icWhitePlanning = "ic_white_planning.png";
+  static const icCheck = "ic_check.png";
+  static const icFilledDiploma = "ic_filled_diploma.png";
+  static const icFilledInfo = "ic_filled_info.png";
+  static const icFilledLocation = "ic_filled_location.png";
+  static const icFilledMission = "ic_filled_mission.png";
+  static const icWhileClock = "ic_white_clock.png";
+  static const icFilledDocument = "ic_filled_new_document.png";
+  static const icArrowRight = "ic_arrow_right.png";
+  static const icPerson = "ic_person.png";
+  static const icUser = "ic_user.png";
+  static const icDayOff = "ic_dayoff.png";
+  static const icDayOffEnable = "ic_dayoff_enable.png";
+  static const icEmpty = "ic_empty.png";
+  static const icPrint = "ic_filled_print.png";
+  static const icDownloadBlack = "ic_download_black.png";
+  static const icAdd = "ic_add.png";
+  static const icAddBlack = "ic_add_black.png";
+  static const icCircle = "ic_circle.png";
+  static const icUndo = "ic_undo.png";
+  static const icRedo = "ic_redo.png";
+  static const icDropDown = "ic_dropdown.png";
+  static const icAgent = "ic_agent.png";
+  static const icUnchecked = "ic_unchecked_checkbox.png";
+  static const icChecked = "ic_checked_checkbox.png";
+  static const icKeyboardRight = "ic_keyboard_right.png";
+  static const icBackArrowIosStyle = "ic_back_arrow_ios_style.png";
+  static const icBack = "ic_back.png";
+  static const icTrash = "ic_trash.png";
+  static const icFarmChief = "ic_farm_chief.png";
+  static const icBGAdd = "ic_bg_add.png";
+  static const icClock = "ic_clock.png";
+  static const icDelete = "ic_delete.png";
+  static const icWarehouse = "ic_warehouse.png";
+  static const icWarehouseWhite = "ic_warehouse_white.png";
+  static const icUserShield = "ic_user_shield.png";
+  static const icMissionEnable = "ic_mission_enable.png";
+  static const icMap = "ic_map.png";
+}
