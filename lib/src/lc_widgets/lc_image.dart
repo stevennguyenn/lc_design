@@ -54,31 +54,11 @@ class LCInternetImage extends StatelessWidget {
   final double width;
   final double height;
   final double borderRadius;
-  // final Icon? icon;
   final BoxFit fit;
-  // final double? widthCorrectImage;
-  // final double? heightCorrectImage;
   final String? placeHolder;
 
   @override
   Widget build(BuildContext context) {
-    ///calculate image size if server support
-    // MediaQueryData queryData = MediaQuery.of(context);
-    // double devicePixelRatio = queryData.devicePixelRatio;
-    // final widthInternet = widthCorrectImage ?? width;
-    // final heightInternet = heightCorrectImage ?? height;
-    // var urlResized = url;
-    // var urlPreload = "";
-    // if (!widthInternet.isInfinite &&
-    //     !heightInternet.isInfinite &&
-    //     url.contains("muvi.vn") &&
-    //     !url.contains("w=")) {
-    //   var iWidth =
-    //   calculateImageWidth((devicePixelRatio * widthInternet).toInt());
-    //   var iHeight = ((heightInternet * iWidth) / widthInternet).round();
-    //   urlResized = '$url?w=$iWidth&h=$iHeight';
-    //   urlPreload = '$url?w=${iWidth ~/ 3}&h=${iHeight ~/ 3}';
-    // }
     return borderRadius == 0
         ? CachedNetworkImage(
             imageUrl: url,
@@ -132,12 +112,13 @@ class LCImage extends Image {
     double? height,
     Color? color,
     BoxFit boxFit = BoxFit.cover,
+    String subFolder = "images",
   }) : super(
           key: key,
           image: ResizeImage.resizeIfNeeded(
             null,
             null,
-            AssetImage("assets/images/$name"),
+            AssetImage("assets/$subFolder/$name"),
           ),
           width: width,
           height: height,
