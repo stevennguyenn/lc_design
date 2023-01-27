@@ -7,6 +7,7 @@ class SelectionItem extends StatelessWidget {
   final bool isSelected;
   final VoidCallback callback;
   final double height;
+  final Color? enableColor;
 
   const SelectionItem({
     super.key,
@@ -14,6 +15,7 @@ class SelectionItem extends StatelessWidget {
     this.isSelected = false,
     required this.callback,
     this.height = 40,
+    this.enableColor,
   });
 
   @override
@@ -23,7 +25,9 @@ class SelectionItem extends StatelessWidget {
       onTap: callback,
       height: height,
       borderRadius: 6,
-      bgColor: isSelected ? UIColors.buttonBG : UIColors.textFieldBG,
+      bgColor: isSelected
+          ? (enableColor ?? UIColors.buttonBG)
+          : UIColors.textFieldBG,
       titleColor: isSelected ? UIColors.white : UIColors.defaultText,
       padding: const EdgeInsets.symmetric(
         horizontal: 16,

@@ -10,12 +10,14 @@ class AppSelection extends StatefulWidget {
     required this.callback,
     this.actions,
     this.height = 40,
+    this.enableColor,
   });
 
   final List<String> titles;
   final Function(int) callback;
   final List<Widget>? actions;
   final double height;
+  final Color? enableColor;
 
   @override
   State<StatefulWidget> createState() {
@@ -65,6 +67,7 @@ class AppSelectionState extends State<AppSelection>
                   itemBuilder: (context, index) {
                     return SelectionItem(
                       title: widget.titles[index],
+                      enableColor: widget.enableColor,
                       isSelected: _currentIndex == index,
                       callback: () {
                         setState(() {
