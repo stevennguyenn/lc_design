@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:lc_design/src/app_widgets/app_sized_box.dart';
 import '../../src.dart';
 
 class AppDropdownField extends StatefulWidget {

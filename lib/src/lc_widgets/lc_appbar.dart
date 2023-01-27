@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import '../src.dart';
 
-const double appbarHeight = 60;
+const double appbarHeight = 54;
 
 class LCAppbar extends PreferredSize {
   LCAppbar.base({
@@ -12,6 +12,7 @@ class LCAppbar extends PreferredSize {
     bool centerTitle = true,
     bool showBackButton = true,
     List<Widget>? actions,
+    VoidCallback? customBackEvent,
   }) : super(
           key: key,
           child: AppBar(
@@ -20,17 +21,19 @@ class LCAppbar extends PreferredSize {
             backgroundColor: backgroundColor,
             actions: actions ?? [],
             systemOverlayStyle: const SystemUiOverlayStyle(
-              statusBarColor: Colors.white,               // Only honored in Android M and above
-              statusBarIconBrightness: Brightness.dark,  // Only honored in Android M and above
+              statusBarColor: Colors.white,
+              // Only honored in Android M and above
+              statusBarIconBrightness: Brightness.dark,
+              // Only honored in Android M and above
               statusBarBrightness: Brightness.light,
             ),
             title: LCText.bold(
               title ?? "",
               fontSize: FontSizes.big,
             ),
-            leadingWidth: showBackButton ? 60 : 40,
             titleSpacing: 0,
-            leading: showBackButton ? const LCBackButton() : null,
+            leading:
+                showBackButton ? LCBackButton(callback: customBackEvent) : null,
           ),
           preferredSize: const Size.fromHeight(appbarHeight),
         );
@@ -44,8 +47,10 @@ class LCAppbar extends PreferredSize {
             elevation: 0,
             backgroundColor: backgroundColor,
             systemOverlayStyle: const SystemUiOverlayStyle(
-              statusBarColor: Colors.white,               // Only honored in Android M and above
-              statusBarIconBrightness: Brightness.dark,  // Only honored in Android M and above
+              statusBarColor: Colors.white,
+              // Only honored in Android M and above
+              statusBarIconBrightness: Brightness.dark,
+              // Only honored in Android M and above
               statusBarBrightness: Brightness.light,
             ),
             title: LCText.bold(
@@ -74,12 +79,13 @@ class LCAppbar extends PreferredSize {
             elevation: 0,
             backgroundColor: backgroundColor,
             systemOverlayStyle: const SystemUiOverlayStyle(
-              statusBarColor: Colors.white,               // Only honored in Android M and above
-              statusBarIconBrightness: Brightness.dark,  // Only honored in Android M and above
+              statusBarColor: Colors.white,
+              // Only honored in Android M and above
+              statusBarIconBrightness: Brightness.dark,
+              // Only honored in Android M and above
               statusBarBrightness: Brightness.light,
             ),
             title: title,
-            leadingWidth: showBackgroundBackButton ? 60 : 40,
             titleSpacing: 0,
             leading: showBackButton ? const LCBackButton() : null,
             actions: actions,
@@ -108,15 +114,10 @@ class LCBackButton extends StatelessWidget {
           }
         },
         padding: 5,
-        child: Container(
-          margin: const EdgeInsets.only(
-            left: 10,
-          ),
-          child: LCImage.asset(
-            name: UIImages.icBack,
-            width: 24,
-            height: 24,
-          ),
+        child: LCImage.asset(
+          name: UIImages.icBack,
+          width: 24,
+          height: 24,
         ),
       ),
     );

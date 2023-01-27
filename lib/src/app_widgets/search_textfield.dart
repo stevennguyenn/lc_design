@@ -1,6 +1,4 @@
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import '../app_font/app_font.dart';
 import '../src.dart';
 
 class SearchTextField extends StatefulWidget {
