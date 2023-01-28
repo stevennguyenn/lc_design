@@ -17,6 +17,7 @@ class _LCListRender extends StatefulWidget {
   final ScrollController? scrollController;
   final bool primary;
   final Axis scrollDirection;
+  final bool shrinkWrap;
 
   const _LCListRender({
     Key? key,
@@ -33,6 +34,7 @@ class _LCListRender extends StatefulWidget {
     this.scrollController,
     this.primary = true,
     this.scrollDirection = Axis.vertical,
+    this.shrinkWrap = false,
   }) : super(key: key);
 
   @override
@@ -107,6 +109,7 @@ class LCListState extends State<_LCListRender> {
       controller: _refreshController,
       child: widget.isBuilder
           ? ListView.builder(
+              shrinkWrap: widget.shrinkWrap,
               physics: widget.scrollPhysics,
               padding: widget.padding,
               itemCount: widget.children.length,
@@ -116,6 +119,7 @@ class LCListState extends State<_LCListRender> {
               })
           : widget.isSeparated
               ? ListView.separated(
+                  shrinkWrap: widget.shrinkWrap,
                   physics: widget.scrollPhysics,
                   padding: widget.padding,
                   itemBuilder: (context, index) {
@@ -128,6 +132,7 @@ class LCListState extends State<_LCListRender> {
               : widget.childWidget != null
                   ? widget.childWidget!
                   : ListView(
+                      shrinkWrap: widget.shrinkWrap,
                       physics: widget.scrollPhysics,
                       scrollDirection: widget.scrollDirection,
                       children: widget.children,
@@ -164,6 +169,7 @@ class LCList extends _LCListRender {
     ScrollController? scrollController,
     bool primary = true,
     Key? key,
+    bool? shrinkWrap,
   }) : super(
           children: children,
           padding: padding,
@@ -175,6 +181,7 @@ class LCList extends _LCListRender {
           isBuilder: true,
           scrollPhysics: scrollPhysics,
           key: key,
+          shrinkWrap: shrinkWrap ?? false,
         );
 
   const LCList.separated({
@@ -189,6 +196,7 @@ class LCList extends _LCListRender {
     ScrollController? scrollController,
     bool primary = true,
     Axis scrollDirection = Axis.vertical,
+    bool? shrinkWrap,
   }) : super(
           children: children,
           padding: padding,
@@ -202,6 +210,7 @@ class LCList extends _LCListRender {
           scrollPhysics: scrollPhysics,
           scrollDirection: scrollDirection,
           key: key,
+          shrinkWrap: shrinkWrap ?? false,
         );
 
   LCList.child({
@@ -211,6 +220,7 @@ class LCList extends _LCListRender {
     Widget? childWidget,
     ScrollController? scrollController,
     bool primary = true,
+    bool? shrinkWrap,
   }) : super(
           onRefreshData: onRefreshData,
           childWidget: childWidget,
@@ -219,5 +229,6 @@ class LCList extends _LCListRender {
           scrollController: scrollController,
           primary: primary,
           key: key,
+          shrinkWrap: shrinkWrap ?? false,
         );
 }
