@@ -60,7 +60,7 @@ class LCImageButton extends StatelessWidget {
     required this.onClick,
     this.disableColor,
     this.color = UIColors.background,
-
+    this.borderRadius = 12,
     this.imageColor,
   }) : super(key: key);
 
@@ -72,6 +72,7 @@ class LCImageButton extends StatelessWidget {
   final Color? color;
   final Color? disableColor;
   final Color? imageColor;
+  final double borderRadius;
   // final Function onClick;
   @override
   Widget build(BuildContext context) {
@@ -82,7 +83,7 @@ class LCImageButton extends StatelessWidget {
         height: height,
         decoration: BoxDecoration(
           color: status == true ? color : disableColor,
-          borderRadius: BorderRadius.circular(12),
+          borderRadius: BorderRadius.circular(borderRadius),
         ),
         child: Center(
           child: LCImage.asset(

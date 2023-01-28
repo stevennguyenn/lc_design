@@ -26,6 +26,7 @@ class AppCountdownTimerWidget extends StatefulWidget {
 class AppCountdownTimerState extends State<AppCountdownTimerWidget> {
   late Timer? _timer;
   late int _currentTime;
+  Color _color = UIColors.buttonBG;
 
   @override
   void initState() {
@@ -41,8 +42,12 @@ class AppCountdownTimerState extends State<AppCountdownTimerWidget> {
           return;
         }
         if (mounted) {
+          final newTime = widget.initTimer - timer.tick;
+          if (newTime < 600 && _color == UIColors.buttonBG) {
+            _color = UIColors.red;
+          }
+          _currentTime = widget.initTimer - timer.tick;
           setState(() {
-            _currentTime = widget.initTimer - timer.tick;
           });
         }
       },
@@ -58,9 +63,23 @@ class AppCountdownTimerState extends State<AppCountdownTimerWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return Text(
-      _currentTime.formatTimer(),
-      style: widget.textStyle ?? regularFont,
+    return Row(
+      children: [
+        Icon(
+          Icons.timer,
+          size: 16,
+          color: _color,
+        ),
+        const SizedBox(
+          width: 4,
+        ),
+        Text(
+          _currentTime.formatTimer(),
+          style: (widget.textStyle ?? regularFont).copyWith(
+            color: _color,
+          ),
+        ),
+      ],
     );
   }
 }

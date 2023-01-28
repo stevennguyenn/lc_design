@@ -38,32 +38,6 @@ class LCAppbar extends PreferredSize {
           preferredSize: const Size.fromHeight(appbarHeight),
         );
 
-  LCAppbar.transparent({
-    Key? key,
-    Color? backgroundColor = UIColors.white,
-  }) : super(
-          key: key,
-          child: AppBar(
-            elevation: 0,
-            backgroundColor: backgroundColor,
-            systemOverlayStyle: const SystemUiOverlayStyle(
-              statusBarColor: Colors.white,
-              // Only honored in Android M and above
-              statusBarIconBrightness: Brightness.dark,
-              // Only honored in Android M and above
-              statusBarBrightness: Brightness.light,
-            ),
-            title: LCText.bold(
-              "",
-              fontSize: FontSizes.big,
-            ),
-            leadingWidth: 0,
-            titleSpacing: 0,
-            leading: const SizedBox(),
-          ),
-          preferredSize: const Size.fromHeight(appbarHeight),
-        );
-
   LCAppbar.customTitle({
     Key? key,
     Widget? title,
@@ -87,6 +61,7 @@ class LCAppbar extends PreferredSize {
             ),
             title: title,
             titleSpacing: 0,
+            leadingWidth: 12,
             leading: showBackButton ? const LCBackButton() : null,
             actions: actions,
           ),

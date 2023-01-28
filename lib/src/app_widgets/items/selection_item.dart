@@ -8,6 +8,7 @@ class SelectionItem extends StatelessWidget {
   final VoidCallback callback;
   final double height;
   final Color? enableColor;
+  final double? width;
 
   const SelectionItem({
     super.key,
@@ -16,21 +17,25 @@ class SelectionItem extends StatelessWidget {
     required this.callback,
     this.height = 40,
     this.enableColor,
+    this.width,
   });
 
   @override
   Widget build(BuildContext context) {
-    return LCButton.base(
-      title: title,
-      onTap: callback,
-      height: height,
-      borderRadius: 6,
-      bgColor: isSelected
-          ? (enableColor ?? UIColors.buttonBG)
-          : UIColors.textFieldBG,
-      titleColor: isSelected ? UIColors.white : UIColors.defaultText,
-      padding: const EdgeInsets.symmetric(
-        horizontal: 16,
+    return SizedBox(
+      width: width,
+      child: LCButton.base(
+        title: title,
+        onTap: callback,
+        height: height,
+        borderRadius: 6,
+        bgColor: isSelected
+            ? (enableColor ?? UIColors.buttonBG)
+            : UIColors.textFieldBG,
+        titleColor: isSelected ? UIColors.white : UIColors.defaultText,
+        padding: const EdgeInsets.symmetric(
+          horizontal: 16,
+        ),
       ),
     );
   }
