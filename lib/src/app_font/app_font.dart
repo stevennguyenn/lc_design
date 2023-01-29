@@ -2,7 +2,7 @@ import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
 import '../constants/constants.dart';
 
-final fonts = GoogleFonts.getFont('Roboto');
+final fonts = GoogleFonts.nunito();
 
 final regularFont = fonts.copyWith(
   fontSize: FontSizes.medium,
