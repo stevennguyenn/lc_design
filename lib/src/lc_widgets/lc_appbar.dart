@@ -29,7 +29,7 @@ class LCAppbar extends PreferredSize {
             ),
             title: LCText.bold(
               title ?? "",
-              fontSize: FontSizes.big,
+              fontSize: FontSizes.extra,
             ),
             titleSpacing: 0,
             leading:
@@ -88,11 +88,11 @@ class LCBackButton extends StatelessWidget {
             Navigator.pop(context);
           }
         },
-        padding: 5,
+        padding: 10,
         child: LCImage.asset(
           name: UIImages.icBack,
-          width: 24,
-          height: 24,
+          width: 18,
+          height: 18,
         ),
       ),
     );

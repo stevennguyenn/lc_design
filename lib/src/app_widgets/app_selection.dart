@@ -50,13 +50,13 @@ class AppSelectionState extends State<AppSelection>
   }
 
   Future<void> checkVisiblePosition() async {
-    final correctWidth = _currentIndex * 80 + 16 * _currentIndex;
+    final correctWidth = _currentIndex * 90 + 16 * _currentIndex;
     final offset = _controller.offset;
     //width of listview
     final lastVisiblePosition = offset + context.screenWidth / 3 * 2;
     if (correctWidth > lastVisiblePosition || correctWidth < offset) {
       _controller.animateTo(
-        correctWidth - context.screenWidth / 2 + 40,
+        correctWidth - context.screenWidth / 2 + 45,
         duration: const Duration(milliseconds: 100),
         curve: Curves.bounceInOut,
       );
@@ -94,7 +94,7 @@ class AppSelectionState extends State<AppSelection>
                         scrollDirection: Axis.horizontal,
                         itemBuilder: (context, index) {
                           return SelectionItem(
-                            width: 80,
+                            width: 90,
                             key: widget.itemKeys != null
                                 ? widget.itemKeys![index]
                                 : null,
