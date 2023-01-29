@@ -97,3 +97,52 @@ class LCImageButton extends StatelessWidget {
     );
   }
 }
+
+class LCIconButton extends StatelessWidget {
+  const LCIconButton({
+    Key? key,
+    required this.icon,
+    this.height = 40,
+    this.width = 40,
+    this.status = true,
+    required this.onClick,
+    this.disableColor,
+    this.color = UIColors.background,
+    this.borderRadius = 12,
+    this.size = 24,
+    this.iconColor,
+  }) : super(key: key);
+
+  final IconData icon;
+  final double? height;
+  final double? width;
+  final bool status;
+  final VoidCallback onClick;
+  final Color? color;
+  final Color? disableColor;
+  final double borderRadius;
+  final double size;
+  final Color? iconColor;
+  // final Function onClick;
+  @override
+  Widget build(BuildContext context) {
+    return LCInkwell.base(
+      onTap: status == true ? onClick : null,
+      child: Container(
+        width: width,
+        height: height,
+        decoration: BoxDecoration(
+          color: status == true ? color : disableColor,
+          borderRadius: BorderRadius.circular(borderRadius),
+        ),
+        child: Center(
+          child: Icon(
+            icon,
+            size: size,
+            color: iconColor,
+          ),
+        ),
+      ),
+    );
+  }
+}
