@@ -49,14 +49,38 @@ class HiveAdapter {
     await dataBox.put(key, data);
   }
 
+  Future<void> saveDataAsList<T>(
+    T data, {
+    required String key,
+    bool isSecretData = false,
+  }) async {
+    final current = await getData(key);
+    if (current == null) {
+      await saveData(
+        [data],
+        key: key,
+        isSecretData: isSecretData,
+      );
+    } else {
+      final newData = current + [data];
+      await saveData(
+        newData,
+        key: key,
+        isSecretData: isSecretData,
+      );
+    }
+  }
+
   Future<dynamic> getData(
     String key, {
     bool isSecretData = false,
   }) async {
     if (isSecretData) {
-      return await secretBox.get(key);
+      final result = await secretBox.get(key);
+      return result;
     }
-    return await dataBox.get(key);
+    final result = await dataBox.get(key);
+    return result;
   }
 
   Future<void> removeAllData() async {

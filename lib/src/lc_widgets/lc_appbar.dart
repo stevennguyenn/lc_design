@@ -62,7 +62,7 @@ class LCAppbar extends PreferredSize {
             title: title,
             titleSpacing: 0,
             leadingWidth: 12,
-            leading: showBackButton ? const LCBackButton() : null,
+            leading: showBackButton ? const LCBackButton() : const SizedBox(),
             actions: actions,
           ),
           preferredSize: const Size.fromHeight(appbarHeight),

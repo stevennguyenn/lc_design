@@ -28,6 +28,16 @@ class AppCountdownTimerState extends State<AppCountdownTimerWidget> {
   late int _currentTime;
   Color _color = UIColors.buttonBG;
 
+
+  int getMakingTimer() {
+    return _currentTime;
+  }
+
+  Future<void> cancelTimer() async {
+    _timer?.cancel();
+    _timer = null;
+  }
+
   @override
   void initState() {
     _currentTime = widget.initTimer;
@@ -36,8 +46,7 @@ class AppCountdownTimerState extends State<AppCountdownTimerWidget> {
       const Duration(seconds: 1),
       (timer) {
         if (timer.tick >= widget.initTimer) {
-          _timer?.cancel();
-          _timer = null;
+          cancelTimer();
           widget.endTime?.call();
           return;
         }
@@ -56,8 +65,7 @@ class AppCountdownTimerState extends State<AppCountdownTimerWidget> {
 
   @override
   void dispose() {
-    _timer?.cancel();
-    _timer = null;
+    cancelTimer();
     super.dispose();
   }
 

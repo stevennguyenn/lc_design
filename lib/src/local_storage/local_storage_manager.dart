@@ -27,8 +27,20 @@ class LocalStorageManager {
     );
   }
 
+  Future<void> saveDataAsList<T>(
+      T data, {
+        required String key,
+        bool isSecretData = false,
+      }) async {
+    await _hive.saveDataAsList(
+      data,
+      key: key,
+      isSecretData: isSecretData,
+    );
+  }
+
   Future<dynamic> getData(String key) async {
-    await _hive.getData(key);
+    return await _hive.getData(key);
   }
 
   Future<void> removeData() async {
