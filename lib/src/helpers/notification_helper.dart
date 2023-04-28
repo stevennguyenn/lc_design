@@ -33,9 +33,9 @@ class NotificationHelper {
 
   final FirebaseMessaging _messaging = FirebaseMessaging.instance;
   final FlutterLocalNotificationsPlugin _flutterLocalNotificationsPlugin =
-      FlutterLocalNotificationsPlugin();
+  FlutterLocalNotificationsPlugin();
   final AndroidInitializationSettings _initializationSettingsAndroid =
-      const AndroidInitializationSettings('app_icon');
+  const AndroidInitializationSettings('app_icon');
   final AndroidNotificationChannel _channel = const AndroidNotificationChannel(
     'high_importance_channel', // id
     'High Importance Notifications', // title
@@ -50,8 +50,8 @@ class NotificationHelper {
       await _messaging.requestPermission();
     }
     final androidNotification =
-        _flutterLocalNotificationsPlugin.resolvePlatformSpecificImplementation<
-            AndroidFlutterLocalNotificationsPlugin>();
+    _flutterLocalNotificationsPlugin.resolvePlatformSpecificImplementation<
+        AndroidFlutterLocalNotificationsPlugin>();
     await androidNotification?.createNotificationChannel(_channel);
     if (Platform.isAndroid) {
       await androidNotification?.requestPermission();
@@ -60,6 +60,10 @@ class NotificationHelper {
         onDidReceiveBackgroundNotificationResponse: onSelectNotification,
         onDidReceiveNotificationResponse: onSelectNotification,
       );
+      final notificationAppLaunchDetails = await _flutterLocalNotificationsPlugin.getNotificationAppLaunchDetails();
+      if (notificationAppLaunchDetails?.didNotificationLaunchApp == true && notificationAppLaunchDetails?.notificationResponse != null) {
+        onSelectNotification(notificationAppLaunchDetails!.notificationResponse!);
+      }
     }
     await _messaging.setForegroundNotificationPresentationOptions(
       alert: true,
@@ -115,12 +119,12 @@ class NotificationHelper {
   }
 
   Future<void> _showNotificationAndroidStyleMedia(
-    String title,
-    String message,
-    String url,
-    String payload, {
-    int id = 0,
-  }) async {
+      String title,
+      String message,
+      String url,
+      String payload, {
+        int id = 0,
+      }) async {
     String? largeIconPath;
     if (url != "") {
       largeIconPath = await _downloadAndSaveFile(url, 'largeIcon');
@@ -132,7 +136,7 @@ class NotificationHelper {
       importance: Importance.max,
       priority: Priority.high,
       largeIcon:
-          largeIconPath != null ? FilePathAndroidBitmap(largeIconPath) : null,
+      largeIconPath != null ? FilePathAndroidBitmap(largeIconPath) : null,
     );
 
     final platformChannelSpecifics = NotificationDetails(
@@ -149,10 +153,10 @@ class NotificationHelper {
   }
 
   Future<void> showNotificationLocal(
-    String title,
-    String message, {
-    int code = 0,
-  }) async {
+      String title,
+      String message, {
+        int code = 0,
+      }) async {
     final androidPlatformChannelSpecifics = AndroidNotificationDetails(
       _channel.id,
       _channel.name,
@@ -174,9 +178,9 @@ class NotificationHelper {
   }
 
   Future<String> _downloadAndSaveFile(
-    String url,
-    String fileName,
-  ) async {
+      String url,
+      String fileName,
+      ) async {
     final directory = await getApplicationDocumentsDirectory();
     final filePath = '${directory.path}/$fileName';
     final response = await http.get(Uri.parse(url));
