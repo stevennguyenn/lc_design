@@ -12,3 +12,4 @@ export 'helpers/helpers.dart';
 export 'lc_widgets/lc_widgets.dart';
 export 'local_storage/local_storage.dart';
 export './network/index.dart';
+export './bloc/bloc.dart';
