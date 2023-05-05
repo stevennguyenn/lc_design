@@ -30,9 +30,9 @@ class SelectionItem extends StatelessWidget {
         height: height,
         borderRadius: 6,
         bgColor: isSelected
-            ? (enableColor ?? UIColors.buttonBG)
-            : UIColors.textFieldBG,
-        titleColor: isSelected ? UIColors.white : UIColors.defaultText,
+            ? (enableColor ?? LCColors.buttonBG)
+            : LCColors.textFieldBG,
+        titleColor: isSelected ? LCColors.white : LCColors.defaultText,
         padding: const EdgeInsets.symmetric(
           horizontal: 16,
         ),

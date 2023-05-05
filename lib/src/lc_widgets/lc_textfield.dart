@@ -1,15 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import '../../src.dart';
+import 'package:keyboard_actions/keyboard_actions.dart';
+import 'package:lc_design/src/constants/icons.dart';
 
-class AppTextField extends StatefulWidget {
-  const AppTextField({
+import '../../lc_design.dart';
+
+class LCTextField extends StatefulWidget {
+  const LCTextField({
     Key? key,
     this.labelText,
     required this.hintText,
     this.callback,
     this.isPassword = false,
-    this.textError,
+    this.errorText,
     this.headerMaxLines,
     this.tfMaxLines = 1,
     this.keyboardType = TextInputType.text,
@@ -21,10 +24,11 @@ class AppTextField extends StatefulWidget {
     this.autoFocus = false,
     this.action = TextInputAction.done,
     this.inputFormatters,
+    this.showKeyboardAction = true,
   }) : super(key: key);
   final String? labelText;
   final String? hintText;
-  final String? textError;
+  final String? errorText;
   final Function()? onSubmit;
   final Function(String)? callback;
   final bool isPassword;
@@ -38,12 +42,13 @@ class AppTextField extends StatefulWidget {
   final bool autoFocus;
   final TextInputAction? action;
   final List<TextInputFormatter>? inputFormatters;
+  final bool showKeyboardAction;
 
   @override
   AppTextFieldState createState() => AppTextFieldState();
 }
 
-class AppTextFieldState extends State<AppTextField> {
+class AppTextFieldState extends State<LCTextField> {
   // Color for border
   bool isHidePassword = true;
   String? errorMessage;
@@ -103,32 +108,32 @@ class AppTextFieldState extends State<AppTextField> {
 
   Color _getColorForTitle() {
     if (errorMessage != null) {
-      return UIColors.red;
+      return LCColors.red;
     }
     if (currentNode.hasFocus == true) {
-      return UIColors.buttonBG;
+      return LCColors.buttonBG;
     }
-    return UIColors.textColor;
+    return LCColors.textColor;
   }
 
   Color _getColorForTextFieldBorder() {
     if (errorMessage != null) {
-      return UIColors.red;
+      return LCColors.red;
     }
     if (currentNode.hasFocus == true) {
-      return UIColors.buttonBG;
+      return LCColors.buttonBG;
     }
     return Colors.transparent;
   }
 
   Color _getColorForTextFieldBG() {
     if (errorMessage != null) {
-      return UIColors.textFieldBGER;
+      return LCColors.textFieldBGER;
     }
     if (currentNode.hasFocus == true) {
-      return UIColors.textFieldBGFC;
+      return LCColors.textFieldBGFC;
     }
-    return UIColors.textFieldBG;
+    return LCColors.textFieldBG;
   }
 
   Widget getTitleWidget() {
@@ -136,7 +141,7 @@ class AppTextFieldState extends State<AppTextField> {
       return LCText.bold(
         errorMessage ?? "",
         fontSize: FontSizes.small,
-        color: UIColors.red,
+        color: LCColors.red,
       );
     }
     if (widget.labelText != null) {
@@ -153,7 +158,7 @@ class AppTextFieldState extends State<AppTextField> {
   Widget? renderSuffixIcon() {
     if (widget.isPassword) {
       final name =
-          isHidePassword ? UIImages.icVisibilityOff : UIImages.icVisibility;
+          isHidePassword ? LCICons.icVisibilityOff : LCICons.icVisibilityOn;
       return LCInkwell.base(
         padding: 0,
         onTap: () {
@@ -161,8 +166,10 @@ class AppTextFieldState extends State<AppTextField> {
             isHidePassword = !isHidePassword;
           });
         },
-        child: LCImage.asset(
-          name: name,
+        child: SvgPicture.asset(
+          name,
+          width: 24,
+          height: 24,
         ),
       );
     }
@@ -173,8 +180,10 @@ class AppTextFieldState extends State<AppTextField> {
         onTap: () {
           widget.controller!.clear();
         },
-        child: LCImage.asset(
-          name: UIImages.icDownloadBlack,
+        child: SvgPicture.asset(
+          LCICons.icClear,
+          width: 24,
+          height: 24,
         ),
       );
     }
@@ -187,7 +196,6 @@ class AppTextFieldState extends State<AppTextField> {
       padding: const EdgeInsets.only(
         left: 16,
         right: 16,
-        top: 12,
       ),
       decoration: BoxDecoration(
         color: _getColorForTextFieldBG(),
@@ -196,59 +204,88 @@ class AppTextFieldState extends State<AppTextField> {
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisSize: MainAxisSize.min,
         children: [
           getTitleWidget(),
-          TextField(
-            autofocus: widget.autoFocus,
-            controller: widget.controller,
-            onChanged: widget.callback,
-            focusNode: currentNode,
-            keyboardType: widget.keyboardType,
-            inputFormatters: widget.inputFormatters,
-            textInputAction:
-                widget.nextNode != null ? TextInputAction.next : widget.action,
-            enableInteractiveSelection: true,
-            obscureText: widget.isPassword == true ? isHidePassword : false,
-            maxLines: widget.tfMaxLines,
-            toolbarOptions: const ToolbarOptions(
-              copy: true,
-              cut: true,
-              selectAll: true,
-              paste: true,
+          KeyboardActions(
+            enable: widget.showKeyboardAction,
+            config: KeyboardActionsConfig(
+              keyboardBarColor: LCColors.white,
+              nextFocus: false,
+              actions: [
+                KeyboardActionsItem(
+                  focusNode: currentNode,
+                  toolbarButtons: [
+                    (node) {
+                      return GestureDetector(
+                        onTap: () {
+                          if (widget.nextNode != null) {
+                            widget.nextNode!.requestFocus();
+                          } else {
+                            currentNode.unfocus();
+                          }
+                        },
+                        child: Container(
+                          color: Colors.white,
+                          padding: const EdgeInsets.all(8.0),
+                          child: LCText.regular(
+                            "continue",
+                          ),
+                        ),
+                      );
+                    }
+                  ],
+                )
+              ],
             ),
-            decoration: InputDecoration(
-              floatingLabelBehavior: FloatingLabelBehavior.always,
-              contentPadding: const EdgeInsets.symmetric(
-                vertical: 12,
+            disableScroll: true,
+            child: TextField(
+              autofocus: widget.autoFocus,
+              controller: widget.controller,
+              onChanged: widget.callback,
+              focusNode: currentNode,
+              keyboardType: widget.keyboardType,
+              inputFormatters: widget.inputFormatters,
+              textInputAction: widget.nextNode != null
+                  ? TextInputAction.next
+                  : widget.action,
+              enableInteractiveSelection: true,
+              obscureText: widget.isPassword == true ? isHidePassword : false,
+              maxLines: widget.tfMaxLines,
+              decoration: InputDecoration(
+                floatingLabelBehavior: FloatingLabelBehavior.always,
+                contentPadding: const EdgeInsets.symmetric(
+                  vertical: 12,
+                ),
+                border: InputBorder.none,
+                fillColor: Colors.transparent,
+                hintStyle: regularFont.copyWith(
+                  color: LCColors.blurTextColor,
+                ),
+                suffixStyle: regularFont,
+                labelStyle: regularFont,
+                isDense: true,
+                filled: true,
+                hintText: widget.hintText?.tr(),
+                suffixIconConstraints: const BoxConstraints(
+                  minHeight: 24,
+                  minWidth: 24,
+                ),
+                suffixIcon: renderSuffixIcon(),
+                counterText: '',
               ),
-              border: InputBorder.none,
-              fillColor: Colors.transparent,
-              hintStyle: regularFont.copyWith(
-                color: UIColors.blurTextColor,
-              ),
-              suffixStyle: regularFont,
-              labelStyle: regularFont,
-              isDense: true,
-              filled: true,
-              hintText: widget.hintText?.tr(),
-              suffixIconConstraints: const BoxConstraints(
-                minHeight: 24,
-                minWidth: 24,
-              ),
-              suffixIcon: renderSuffixIcon(),
-              counterText: '',
+              onEditingComplete: () {
+                if (widget.nextNode != null) {
+                  widget.nextNode!.requestFocus();
+                } else {
+                  currentNode.unfocus();
+                }
+                if (widget.onSubmit != null) {
+                  widget.onSubmit!.call();
+                }
+              },
+              maxLength: widget.tfMaxLength,
             ),
-            onEditingComplete: () {
-              if (widget.nextNode != null) {
-                widget.nextNode!.requestFocus();
-              } else {
-                currentNode.unfocus();
-              }
-              if (widget.onSubmit != null) {
-                widget.onSubmit!.call();
-              }
-            },
-            maxLength: widget.tfMaxLength,
           ),
         ],
       ),

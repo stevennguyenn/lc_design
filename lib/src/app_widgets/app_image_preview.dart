@@ -28,7 +28,7 @@ class AppImagePreview extends StatelessWidget {
               child: LCInkwell.base(
                 child: const Icon(
                   Icons.cancel,
-                  color: UIColors.white,
+                  color: LCColors.white,
                   size: 24,
                 ),
                 onTap: () {

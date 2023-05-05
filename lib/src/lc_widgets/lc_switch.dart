@@ -28,11 +28,11 @@ class LCSwitch extends StatelessWidget {
       value: status,
       borderRadius: height / 2,
       padding: 0.5,
-      activeColor: UIColors.red,
-      inactiveTextColor: UIColors.gray,
+      activeColor: LCColors.red,
+      inactiveTextColor: LCColors.gray,
       showOnOff: false,
       onToggle: changed,
-      activeTextColor: UIColors.white,
+      activeTextColor: LCColors.white,
     );
   }
 }

@@ -30,9 +30,9 @@ class AppTable extends StatelessWidget {
   Widget _buildIcon() {
     return Column(
       children: List.generate(records.length + 1, (index) {
-        var color = UIColors.white;
+        var color = LCColors.white;
         if (index != 0 && index % 2 != 0) {
-          color = UIColors.grayBG;
+          color = LCColors.grayBG;
         }
         return LCInkwell.base(
           onTap: () {
@@ -88,7 +88,7 @@ class AppTable extends StatelessWidget {
             ? LCText.regular(
                 cell,
                 fontSize: FontSizes.small,
-                color: UIColors.blurTextColor,
+                color: LCColors.blurTextColor,
               )
             : LCText.regular(
                 getText(cell),
@@ -119,10 +119,10 @@ class AppTable extends StatelessWidget {
     bool isHeader = false,
   }) {
     return records.mapIndexed((index, record) {
-      var color = UIColors.white;
+      var color = LCColors.white;
 
       if (index % 2 == 0 && records.length != 1) {
-        color = UIColors.grayBG;
+        color = LCColors.grayBG;
       }
 
       return Container(

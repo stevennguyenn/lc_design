@@ -21,17 +21,17 @@ class CheckBoxItem extends StatelessWidget {
       child: Row(
         children: [
           LCImage.asset(
-            name: isSelected ? UIImages.icCheck : UIImages.icCircle,
+            name: isSelected ? LCCImages.icCheck : LCCImages.icCircle,
             width: 20,
             height: 20,
-            color: isSelected ? UIColors.buttonBG : null,
+            color: isSelected ? LCColors.buttonBG : null,
           ),
           const SizedBox(
             width: 8,
           ),
           LCText.regular(
             title,
-            color: isSelected ? UIColors.buttonBG : UIColors.defaultText,
+            color: isSelected ? LCColors.buttonBG : LCColors.defaultText,
           ),
         ],
       ),

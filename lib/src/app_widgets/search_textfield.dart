@@ -83,16 +83,16 @@ class AppTextFieldState extends State<SearchTextField> {
 
   Color _getColorForTextFieldBorder() {
     if (_focusNode.hasFocus) {
-      return UIColors.buttonBG;
+      return LCColors.buttonBG;
     }
-    return UIColors.backButtonBG;
+    return LCColors.backButtonBG;
   }
 
   Color _getColorForTextFieldBG() {
     if (_focusNode.hasFocus == true) {
-      return UIColors.textFieldBGFC;
+      return LCColors.textFieldBGFC;
     }
-    return UIColors.textFieldBG;
+    return LCColors.textFieldBG;
   }
 
   Widget? _renderSuffixIcon() {
@@ -103,7 +103,7 @@ class AppTextFieldState extends State<SearchTextField> {
           widget.searchController!.clear();
         },
         child: LCImage.asset(
-          name: UIImages.icDownloadBlack,
+          name: LCCImages.icDownloadBlack,
         ),
       );
     }
@@ -146,14 +146,14 @@ class AppTextFieldState extends State<SearchTextField> {
                   border: InputBorder.none,
                   fillColor: Colors.transparent,
                   hintStyle: regularFont.copyWith(
-                    color: UIColors.blurTextColor,
+                    color: LCColors.blurTextColor,
                   ),
                   suffixStyle: regularFont,
                   suffixIcon: _renderSuffixIcon(),
                   labelStyle: regularFont,
                   isDense: true,
                   filled: true,
-                  hintText: widget.hintText?.tr(),
+                  hintText: widget.hintText,
                   suffixIconConstraints: const BoxConstraints(
                     minHeight: 24,
                     minWidth: 24,
@@ -172,7 +172,7 @@ class AppTextFieldState extends State<SearchTextField> {
             width: 16,
           ),
           LCImageButton(
-            image: UIImages.icSearch,
+            image: LCCImages.icSearch,
             onClick: () {
               if (!isEnableButton) {
                 return;
@@ -183,9 +183,9 @@ class AppTextFieldState extends State<SearchTextField> {
               }
             },
             status: isEnableButton,
-            color: UIColors.buttonBG,
-            disableColor: UIColors.gray,
-            imageColor: UIColors.white,
+            color: LCColors.buttonBG,
+            disableColor: LCColors.gray,
+            imageColor: LCColors.white,
           ),
           const SizedBox(
             width: 16,

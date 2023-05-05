@@ -22,7 +22,7 @@ class MessageDialog extends StatelessWidget {
         width: 320,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(5),
-          color: UIColors.white,
+          color: LCColors.white,
         ),
         child: Column(
           mainAxisSize: MainAxisSize.min,
@@ -67,7 +67,7 @@ class MessageDialog extends StatelessWidget {
                   child: LCText.regular(
                     "ok",
                     fontSize: FontSizes.medium,
-                    color: UIColors.buttonBG,
+                    color: LCColors.buttonBG,
                   ),
                 ),
               ),

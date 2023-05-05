@@ -7,7 +7,7 @@ class BoxDataItem extends StatelessWidget {
     super.key,
     required this.title,
     this.message,
-    this.messageColor = UIColors.defaultText,
+    this.messageColor = LCColors.defaultText,
     this.maxLinesMessage = 1,
   });
 
@@ -24,7 +24,7 @@ class BoxDataItem extends StatelessWidget {
       children: [
         LCText.regular(
           title,
-          color: UIColors.defaultText.withOpacity(0.5),
+          color: LCColors.defaultText.withOpacity(0.5),
           maxLines: 1,
           fontSize: FontSizes.small,
         ),

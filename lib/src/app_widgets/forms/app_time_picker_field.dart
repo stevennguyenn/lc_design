@@ -33,7 +33,7 @@ class AppTimePickerField extends StatelessWidget {
       ),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(6),
-        color: UIColors.textFieldBG,
+        color: LCColors.textFieldBG,
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -63,7 +63,7 @@ class AppTimePickerField extends StatelessWidget {
                 ),
                 const Spacer(),
                 LCImage.asset(
-                  name: UIImages.icClock,
+                  name: LCCImages.icClock,
                 ),
               ],
             ),

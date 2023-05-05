@@ -6,18 +6,18 @@ final fonts = GoogleFonts.nunito();
 
 final regularFont = fonts.copyWith(
   fontSize: FontSizes.medium,
-  color: UIColors.defaultText,
+  color: LCColors.defaultText,
   fontWeight: FontWeight.w400,
 );
 
 final mediumFont = fonts.copyWith(
   fontSize: FontSizes.medium,
-  color: UIColors.defaultText,
+  color: LCColors.defaultText,
   fontWeight: FontWeight.w500,
 );
 
 final boldFont = fonts.copyWith(
   fontSize: FontSizes.medium,
-  color: UIColors.defaultText,
+  color: LCColors.defaultText,
   fontWeight: FontWeight.w700,
 );

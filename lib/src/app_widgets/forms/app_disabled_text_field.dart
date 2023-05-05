@@ -24,7 +24,7 @@ class DisabledTextField extends StatelessWidget {
       ),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(6),
-        color: UIColors.textFieldBG,
+        color: LCColors.textFieldBG,
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -32,7 +32,7 @@ class DisabledTextField extends StatelessWidget {
           LCText.bold(
             title,
             fontSize: FontSizes.small,
-            color: UIColors.gray,
+            color: LCColors.gray,
           ),
           const SizedBox(
             height: 8,
@@ -40,7 +40,7 @@ class DisabledTextField extends StatelessWidget {
           LCText.base(
             subTitle.isNotEmpty ? subTitle : "-",
             fontSize: FontSizes.medium,
-            color: UIColors.gray,
+            color: LCColors.gray,
           ),
         ],
       ),

@@ -20,10 +20,10 @@ class LoadingWidget extends StatelessWidget {
       child: RepaintBoundary(
         child: LoadingIndicator(
           indicatorType: Indicator.lineSpinFadeLoader,
-          colors: [UIColors.buttonBG],
+          colors: [LCColors.buttonBG],
           strokeWidth: 2,
           backgroundColor: Colors.transparent,
-          pathBackgroundColor: UIColors.buttonBG,
+          pathBackgroundColor: LCColors.buttonBG,
         ),
       ),
     );

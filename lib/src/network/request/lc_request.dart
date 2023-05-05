@@ -1,7 +1,4 @@
-import 'dart:typed_data';
-
 import 'package:dio/dio.dart';
-
 import '../base_response.dart';
 import '../endpoint.dart';
 import '../network_config.dart';
@@ -100,35 +97,6 @@ class LCRequest extends LCRequestProtocol {
 
       if (json != null) {
         if (statusCode >= 200 && statusCode < 300) {
-          final sessions = response.headers.value("set-cookie");
-          String? sessionId;
-          if (sessions != null) {
-            final sessionSplit = sessions.split(";");
-            if (sessionSplit.isNotEmpty) {
-              sessionId = sessionSplit.first.split("=").last;
-            }
-          }
-          if (json is Map<String, dynamic>) {
-            return BaseResponse.fromSuccessJson(
-              json,
-              sessionId,
-              null,
-            );
-          }
-          if (json is String) {
-            return BaseResponse.fromSuccessJson(
-              {},
-              sessionId,
-              json,
-            );
-          }
-          if (json is Uint8List) {
-            return BaseResponse.fromSuccessBytes(
-              {},
-              sessionId,
-              json,
-            );
-          }
         } else {
           return BaseResponse.fromErrorJson(json);
         }
@@ -136,7 +104,7 @@ class LCRequest extends LCRequestProtocol {
     } catch (e) {
       return BaseResponse(
         code: 1,
-        message: e.toString(),
+        message: "$e",
       );
     }
 

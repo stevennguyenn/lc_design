@@ -24,7 +24,7 @@ class FixedBottomButton extends StatelessWidget {
       left: 0,
       right: 0,
       child: Container(
-        color: UIColors.white,
+        color: LCColors.white,
         padding: EdgeInsets.only(
           bottom: context.paddingBottomForButton,
           left: paddingLeft,
@@ -39,14 +39,14 @@ class FixedBottomButton extends StatelessWidget {
                   children: [
                     LCText.bold(
                       title,
-                      color: UIColors.white,
+                      color: LCColors.white,
                     ),
                     const SizedBox(
                       width: 8,
                     ),
                     LCText.bold(
                       subTitle!,
-                      color: UIColors.white.withOpacity(0.5),
+                      color: LCColors.white.withOpacity(0.5),
                     ),
                   ],
                 ),

@@ -21,7 +21,7 @@ class DashedButton extends StatelessWidget {
       opacity: 0.6,
       onTap: onTap,
       child: DottedBorder(
-        color: UIColors.black,
+        color: LCColors.black,
         dashPattern: const [6, 6, 6, 6],
         strokeWidth: 1,
         borderType: BorderType.RRect,

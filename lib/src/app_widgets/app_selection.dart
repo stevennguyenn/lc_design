@@ -77,7 +77,7 @@ class AppSelectionState extends State<AppSelection>
       child: !_available
           ? const SizedBox()
           : Container(
-              color: UIColors.white,
+              color: LCColors.white,
               padding: EdgeInsets.only(
                 bottom: widget.paddingBottom,
               ),

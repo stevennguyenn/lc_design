@@ -65,7 +65,7 @@ class AppDateTimePickerStatefulFieldState
       ),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(6),
-        color: UIColors.textFieldBG,
+        color: LCColors.textFieldBG,
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -120,7 +120,7 @@ class AppDateTimePickerStatefulFieldState
                       });
                     },
                     child: LCImage.asset(
-                      name: UIImages.icDownloadBlack,
+                      name: LCCImages.icDownloadBlack,
                     ),
                   ),
                 const AppSizedBox.width(

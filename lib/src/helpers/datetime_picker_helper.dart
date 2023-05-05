@@ -28,7 +28,7 @@ class DateTimePickerHelper {
           fontSize: FontSizes.big,
         ),
         doneStyle: regularFont.copyWith(
-          color: UIColors.buttonBG,
+          color: LCColors.buttonBG,
           fontSize: FontSizes.big,
         ),
         cancelStyle: regularFont.copyWith(
@@ -59,7 +59,7 @@ class DateTimePickerHelper {
           fontSize: FontSizes.big,
         ),
         doneStyle: regularFont.copyWith(
-          color: UIColors.buttonBG,
+          color: LCColors.buttonBG,
           fontSize: FontSizes.big,
         ),
         cancelStyle: regularFont.copyWith(
@@ -96,7 +96,7 @@ class DateTimePickerHelper {
           fontSize: FontSizes.big,
         ),
         doneStyle: regularFont.copyWith(
-          color: UIColors.buttonBG,
+          color: LCColors.buttonBG,
           fontSize: FontSizes.big,
         ),
         cancelStyle: regularFont.copyWith(
@@ -129,7 +129,7 @@ class DateTimePickerHelper {
           fontSize: FontSizes.big,
         ),
         doneStyle: regularFont.copyWith(
-          color: UIColors.buttonBG,
+          color: LCColors.buttonBG,
           fontSize: FontSizes.big,
         ),
         cancelStyle: regularFont.copyWith(
@@ -162,7 +162,7 @@ class DateTimePickerHelper {
           fontSize: FontSizes.big,
         ),
         doneStyle: regularFont.copyWith(
-          color: UIColors.buttonBG,
+          color: LCColors.buttonBG,
           fontSize: FontSizes.big,
         ),
         cancelStyle: regularFont.copyWith(

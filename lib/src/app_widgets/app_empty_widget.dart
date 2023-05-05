@@ -13,7 +13,7 @@ class AppEmptyWidget extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         LCImage.asset(
-          name: UIImages.icEmpty,
+          name: LCCImages.icEmpty,
           width: 56,
           height: 56,
         ),
@@ -22,7 +22,7 @@ class AppEmptyWidget extends StatelessWidget {
         ),
         LCText.base(
           "empty",
-          color: UIColors.defaultText.withOpacity(0.5),
+          color: LCColors.defaultText.withOpacity(0.5),
         ),
       ],
     );

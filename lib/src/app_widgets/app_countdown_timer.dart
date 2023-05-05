@@ -26,7 +26,7 @@ class AppCountdownTimerWidget extends StatefulWidget {
 class AppCountdownTimerState extends State<AppCountdownTimerWidget> {
   late Timer? _timer;
   late int _currentTime;
-  Color _color = UIColors.buttonBG;
+  Color _color = LCColors.buttonBG;
 
 
   int getMakingTimer() {
@@ -52,8 +52,8 @@ class AppCountdownTimerState extends State<AppCountdownTimerWidget> {
         }
         if (mounted) {
           final newTime = widget.initTimer - timer.tick;
-          if (newTime < 600 && _color == UIColors.buttonBG) {
-            _color = UIColors.red;
+          if (newTime < 600 && _color == LCColors.buttonBG) {
+            _color = LCColors.red;
           }
           _currentTime = widget.initTimer - timer.tick;
           setState(() {

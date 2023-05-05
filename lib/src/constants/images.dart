@@ -1,8 +1,4 @@
-
-
-class UIImages {
-  static const icVisibilityOff = "ic_visibility_off.png";
-  static const icVisibility = "ic_visibility.png";
+class LCCImages {
   static const icArrowBack = "ic_arrow_back.png";
   static const icSearch = "ic_search.png";
   static const icCheck = "ic_check.png";

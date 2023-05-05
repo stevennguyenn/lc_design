@@ -25,14 +25,14 @@ class AppTag extends StatelessWidget {
         ),
         decoration: BoxDecoration(
           color: isEnable
-              ? UIColors.buttonBG.withOpacity(0.1)
-              : UIColors.background,
+              ? LCColors.buttonBG.withOpacity(0.1)
+              : LCColors.background,
           borderRadius: BorderRadius.circular(12),
         ),
         child: LCText.regular(
           title,
           fontSize: FontSizes.small,
-          color: isEnable ? UIColors.buttonBG : UIColors.defaultText,
+          color: isEnable ? LCColors.buttonBG : LCColors.defaultText,
         ),
       ),
     );

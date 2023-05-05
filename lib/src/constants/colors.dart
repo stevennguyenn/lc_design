@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class UIColors {
-  UIColors._();
+class LCColors {
+  LCColors._();
 
   static const Color textFieldBG = Color.fromRGBO(51, 51, 51, 0.05);
   static Color buttonBG = const Color.fromRGBO(1, 139, 62, 1);

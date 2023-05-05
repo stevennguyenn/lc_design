@@ -43,7 +43,7 @@ class AppDateTimePickerField extends StatelessWidget {
       ),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(6),
-        color: UIColors.textFieldBG,
+        color: LCColors.textFieldBG,
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,

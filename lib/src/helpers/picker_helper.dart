@@ -23,7 +23,7 @@ class PickerHelper {
       context: context,
       builder: (context) {
         return Container(
-          color: UIColors.white,
+          color: LCColors.white,
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
@@ -31,7 +31,7 @@ class PickerHelper {
                 height: 16,
               ),
               Material(
-                color: UIColors.white,
+                color: LCColors.white,
                 child: Row(
                   children: [
                     const SizedBox(
@@ -47,7 +47,7 @@ class PickerHelper {
                     LCInkwell.base(
                       child: LCText.regular(
                         "confirm",
-                        color: UIColors.buttonBG,
+                        color: LCColors.buttonBG,
                       ),
                       onTap: () {
                         Navigator.pop(context, current);

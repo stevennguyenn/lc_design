@@ -57,10 +57,10 @@ class DialogProvider {
   }
 
   Future<dynamic> showCustomDialog(
-    BuildContext context, {
-    bool barrierDismissible = true,
-    required Widget dialog,
-  }) async {
+      BuildContext context, {
+        bool barrierDismissible = true,
+        required Widget dialog,
+      }) async {
     return await showDialog<dynamic>(
       context: context,
       builder: (context) {

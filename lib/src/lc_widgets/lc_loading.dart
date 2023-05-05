@@ -16,7 +16,7 @@ class LCLoading extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: UIColors.textFieldBG,
+      color: LCColors.textFieldBG,
       child: Stack(
         alignment: Alignment.center,
         children: [
@@ -32,7 +32,7 @@ class LCLoading extends StatelessWidget {
                     Radius.circular(12),
                   ),
                   color: showBackground
-                      ? UIColors.gray.withOpacity(0.05)
+                      ? LCColors.gray.withOpacity(0.05)
                       : Colors.transparent,
                 ),
                 child: Center(
@@ -42,10 +42,10 @@ class LCLoading extends StatelessWidget {
                     child: RepaintBoundary(
                       child: LoadingIndicator(
                         indicatorType: Indicator.lineSpinFadeLoader,
-                        colors: [UIColors.buttonBG],
+                        colors: [LCColors.buttonBG],
                         strokeWidth: 2,
                         backgroundColor: Colors.transparent,
-                        pathBackgroundColor: UIColors.buttonBG,
+                        pathBackgroundColor: LCColors.buttonBG,
                       ),
                     ),
                   ),

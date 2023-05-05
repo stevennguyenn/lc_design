@@ -63,7 +63,7 @@ class AppDropdownFieldState extends State<AppDropdownField>
         ),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(6),
-          color: UIColors.textFieldBG,
+          color: LCColors.textFieldBG,
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -96,14 +96,14 @@ class AppDropdownFieldState extends State<AppDropdownField>
                       });
                     },
                     child: LCImage.asset(
-                      name: UIImages.icDownloadBlack,
+                      name: LCCImages.icDownloadBlack,
                     ),
                   ),
                 const AppSizedBox.width(
                   width: 8,
                 ),
                 LCImage.asset(
-                  name: UIImages.icDropDown,
+                  name: LCCImages.icDropDown,
                   width: 12,
                   height: 12,
                 ),

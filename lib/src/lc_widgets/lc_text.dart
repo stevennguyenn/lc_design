@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '../src.dart';
+import 'package:lc_design/lc_design.dart';
 
 class LCText extends Text {
   LCText.base(
@@ -8,7 +8,7 @@ class LCText extends Text {
     Key? key,
     /// need list of size
     double? fontSize = FontSizes.medium,
-    Color? color = UIColors.textColor,
+    Color? color = LCColors.textColor,
     FontWeight? fontWeight,
     int? maxLines,
     TextAlign? textAlign,
@@ -33,7 +33,7 @@ class LCText extends Text {
 
     /// need list of size
     double? fontSize = FontSizes.medium,
-    Color? color = UIColors.textColor,
+    Color? color = LCColors.textColor,
     FontWeight? fontWeight = FontWeight.w400,
     int? maxLines,
     TextAlign? textAlign,
@@ -58,7 +58,7 @@ class LCText extends Text {
 
     /// need list of size
     double? fontSize = FontSizes.medium,
-    Color? color = UIColors.textColor,
+    Color? color = LCColors.textColor,
     FontWeight? fontWeight = FontWeight.w500,
     int? maxLines,
     TextAlign? textAlign,
@@ -82,7 +82,7 @@ class LCText extends Text {
     Key? key,
     /// need list of size
     double? fontSize = FontSizes.medium,
-    Color? color = UIColors.textColor,
+    Color? color = LCColors.textColor,
     FontWeight? fontWeight = FontWeight.w700,
     int? maxLines,
     TextOverflow? textOverflow = TextOverflow.ellipsis,

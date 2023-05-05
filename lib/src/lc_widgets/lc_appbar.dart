@@ -8,7 +8,7 @@ class LCAppbar extends PreferredSize {
   LCAppbar.base({
     Key? key,
     String? title,
-    Color? backgroundColor = UIColors.white,
+    Color? backgroundColor = LCColors.white,
     bool centerTitle = true,
     bool showBackButton = true,
     List<Widget>? actions,
@@ -41,7 +41,7 @@ class LCAppbar extends PreferredSize {
   LCAppbar.customTitle({
     Key? key,
     Widget? title,
-    Color? backgroundColor = UIColors.white,
+    Color? backgroundColor = LCColors.white,
     bool centerTitle = true,
     bool showBackgroundBackButton = false,
     bool showBackButton = true,
@@ -90,7 +90,7 @@ class LCBackButton extends StatelessWidget {
         },
         padding: 10,
         child: LCImage.asset(
-          name: UIImages.icBack,
+          name: LCCImages.icBack,
           width: 18,
           height: 18,
         ),

@@ -23,7 +23,7 @@ class ConfirmDialog extends StatelessWidget {
           width: 320,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(5),
-            color: UIColors.white,
+            color: LCColors.white,
           ),
           child: Column(
             mainAxisSize: MainAxisSize.min,
@@ -69,7 +69,7 @@ class ConfirmDialog extends StatelessWidget {
                         child: Center(
                           child: LCText.base(
                             confirmButtonTitle,
-                            color: UIColors.buttonBG,
+                            color: LCColors.buttonBG,
                             fontSize: FontSizes.medium,
                           ),
                         ),
